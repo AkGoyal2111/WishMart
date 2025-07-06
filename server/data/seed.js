@@ -1,6 +1,8 @@
+require('dotenv').config({ path: __dirname + '/../.env' });
 const mongoose = require('mongoose');
-require('dotenv').config();
-const Product = require('../models/Product');
+
+
+const Product = require('../models/productModel');
 
 const sampleProducts = [
   {
@@ -126,7 +128,9 @@ const sampleProducts = [
 ];
 
 const connectAndSeed = async () => {
-  try {
+  try { 
+    console.log("🔑 Loaded MONGODB_URI:", process.env.MONGODB_URI);
+
     await mongoose.connect(process.env.MONGODB_URI);
     await Product.deleteMany({});
     await Product.insertMany(sampleProducts);

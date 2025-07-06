@@ -14,6 +14,8 @@ connectDB();
 
 // Routes
 app.use('/api/chat', require('./routes/chatRoutes'));
+app.use('/api/products', require('./routes/productRoutes'));
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

@@ -1,6 +1,6 @@
 const OpenAI = require("openai");
 require("dotenv").config();
-const Product = require("../models/Product");
+const Product = require("../models/productModel");
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -47,6 +47,8 @@ exports.handleChat = async (req, res) => {
     }
     const rawResponse = completion.choices[0].message.content;
     console.log("🔍 GPT raw response:", rawResponse);
+  //  🧪 MOCKING OPENAI RESPONSE TEMPORARILY
+
 
     let extracted;
     try {
